@@ -1,1 +1,42 @@
+name: Build CV PDF
 
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Find the main .tex file
+        id: main
+        run: |
+          MAIN=$(grep -l '^[^%]*\\documentclass' $(git ls-files '*.tex') | head -n 1)
+          if [ -z "$MAIN" ]; then echo "No .tex file with \\documentclass found"; exit 1; fi
+          echo "Main file: $MAIN"
+          echo "file=$MAIN" >> "$GITHUB_OUTPUT"
+          echo "pdf=${MAIN%.tex}.pdf" >> "$GITHUB_OUTPUT"
+          if grep -q 'fontspec' "$MAIN"; then echo "xe=true" >> "$GITHUB_OUTPUT"; else echo "xe=false" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: ${{ steps.main.outputs.file }}
+          latexmk_use_xelatex: ${{ steps.main.outputs.xe }}
+
+      - name: Name the PDF
+        run: cp "${{ steps.main.outputs.pdf }}" Temitope-Odedeyi-CV.pdf
+
+      - name: Publish as the latest CV
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: cv-latest
+          name: Latest CV
+          body: Built automatically from the Overleaf project.
+          files: Temitope-Odedeyi-CV.pdf
+          overwrite_files: true
