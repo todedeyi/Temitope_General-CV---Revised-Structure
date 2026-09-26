@@ -1,4 +1,9 @@
-\documentclass[a4paper,10pt]{article}
+
+\documentclass[a4paper,11pt]{article}
+
+%----------------------------------------------------------------------------------------
+% PACKAGES
+%----------------------------------------------------------------------------------------
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -12,35 +17,144 @@
 \usepackage{tabularx}
 \usepackage{array}
 
+%----------------------------------------------------------------------------------------
+% COLOURS AND LINKS
+%----------------------------------------------------------------------------------------
+
 \definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\hypersetup{colorlinks=true, urlcolor=linkcolour, linkcolor=linkcolour}
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{4pt}{4pt}
-\titleformat{\subsection}{\normalsize\bfseries\raggedright}{}{0em}{}
-\titlespacing{\subsection}{0pt}{3pt}{2pt}
-\setlist[itemize]{leftmargin=*, noitemsep, topsep=1pt}
+
+\hypersetup{
+    colorlinks=true,
+    urlcolor=linkcolour,
+    linkcolor=linkcolour
+}
+
+%----------------------------------------------------------------------------------------
+% TYPOGRAPHY AND SPACING
+%----------------------------------------------------------------------------------------
+
+\titleformat{\section}
+    {\Large\scshape\raggedright}
+    {}
+    {0em}
+    {}
+    [\titlerule]
+
+\titlespacing{\section}
+    {0pt}
+    {10pt}
+    {6pt}
+
+\titleformat{\subsection}
+    {\normalsize\bfseries\raggedright}
+    {}
+    {0em}
+    {}
+
+\titlespacing{\subsection}
+    {0pt}
+    {7pt}
+    {3pt}
+
+% Lists
+\setlist[itemize]{
+    leftmargin=*,
+    itemsep=2.5pt,
+    topsep=3pt,
+    parsep=0pt,
+    partopsep=0pt
+}
+
+\setlist[enumerate]{
+    leftmargin=*,
+    itemsep=3pt,
+    topsep=3pt,
+    parsep=0pt,
+    partopsep=0pt
+}
+
+% Paragraphs
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{2pt}
+\setlength{\parskip}{3.5pt}
+
 \pagestyle{empty}
 
-\newcommand{\cvitem}[2]{\textsc{#1} & #2\\[1mm]}
-\newcommand{\role}[3]{\subsection*{#1 \hfill \normalfont #2}\vspace{-1mm}{\itshape #3}\vspace{1mm}}
+%----------------------------------------------------------------------------------------
+% CUSTOM COMMANDS
+%----------------------------------------------------------------------------------------
+
+% Tabular CV entry
+\newcommand{\cvitem}[2]{%
+    \textsc{#1} & #2\\[2.5mm]
+}
+
+% Academic / research role
+\newcommand{\role}[3]{%
+    \subsection*{#1 \hfill \normalfont #2}
+    \vspace{-0.5mm}
+    {\itshape #3}
+    \vspace{2mm}
+}
+
+% Funding entry
+\newcommand{\funding}[2]{%
+    \vspace{2pt}
+    \noindent\textbf{#1}\par
+    \vspace{1pt}
+    #2\par
+    \vspace{5pt}
+}
+
+% Invited talk / panel entry
+\newcommand{\invitedtalk}[2]{%
+    \textbf{#1}\\[1.5mm]
+    #2\par
+    \vspace{5pt}
+}
+
+% Qualification entry
+\newcommand{\qualification}[1]{%
+    \textbf{#1}\par
+    \vspace{4pt}
+}
+
+%----------------------------------------------------------------------------------------
+% DOCUMENT
+%----------------------------------------------------------------------------------------
 
 \begin{document}
 
 %----------------------------------------------------------------------------------------
 % TITLE
 %----------------------------------------------------------------------------------------
+
 \begin{center}
-{\Huge \textsc{Temitope Oluseun \textbf{Odedeyi}}}\\[2mm]
-\href{mailto:t.odedeyi@ucl.ac.uk}{t.odedeyi@ucl.ac.uk} $|$ LinkedIn: \href{https://www.linkedin.com/in/temitope-o-odedeyi}{temitope-o-odedeyi} $|$ London, UK
+    {\Huge \textsc{Temitope Oluseun \textbf{Odedeyi}}}\\[3mm]
+    \href{mailto:t.odedeyi@ucl.ac.uk}{t.odedeyi@ucl.ac.uk}
+    \quad $|$ \quad
+    LinkedIn:
+    \href{https://www.linkedin.com/in/temitope-o-odedeyi}
+    {temitope-o-odedeyi}
+    \quad $|$ \quad
+    London, UK
 \end{center}
 
+\vspace{2mm}
+
 %----------------------------------------------------------------------------------------
+% PROFESSIONAL PROFILE
+%----------------------------------------------------------------------------------------
+
 \section{Professional Profile}
+
 Royal Academy of Engineering Research Fellow and Senior Research Fellow at University College London developing intelligent sensing technologies for sustainable agriculture and climate-resilient food systems. My research combines RF electronics, IoT sensing, machine learning and environmental data integration to develop low-cost technologies for crop monitoring, crop quality assessment and digital agriculture. I have secured over \textbf{\pounds850k} in competitive research funding as Principal Investigator and contributed to collaborative projects exceeding \textbf{\texteuro5M}. My work spans device design, AI-enabled modelling, field deployment and collaboration across Europe, Asia and sub-Saharan Africa.
 
+%----------------------------------------------------------------------------------------
+% CAREER HIGHLIGHTS
+%----------------------------------------------------------------------------------------
+
 \section{Career Highlights}
+
 \begin{itemize}
     \item Royal Academy of Engineering Research Fellow, University College London.
     \item Principal Investigator on more than \textbf{\pounds850k} in competitive research funding.
@@ -51,22 +165,62 @@ Royal Academy of Engineering Research Fellow and Senior Research Fellow at Unive
     \item International research experience and collaborations across the UK, Sweden, Slovenia, Nigeria, Ghana and Japan.
 \end{itemize}
 
+%----------------------------------------------------------------------------------------
+% RESEARCH INTERESTS
+%----------------------------------------------------------------------------------------
+
 \section{Research Interests}
+
 Microwave Electronics; Agrifood electronics; bioimpedance sensing; IoT and edge AI; crop growth and yield modelling; crop quality sensing; environmental sensing; digital agriculture; climate-resilient food systems.
 
 %----------------------------------------------------------------------------------------
+% EDUCATION
+%----------------------------------------------------------------------------------------
+
 \section{Education}
+
 \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
-\cvitem{2022--2023}{MBA elective, \textbf{Innovation to Market (I2M)} Course, \textbf{London Business School}, London, UK}
-\cvitem{2016--2020}{PhD, Electronic and Electrical Engineering, \textbf{University College London}, London, UK. Developed amplifier architectures and techniques with \textbf{world-record speed} in microwave electronics; produced 9 publications and 5 presentations at leading conferences; completed visiting research positions at Chalmers University of Technology, University of Ljubljana, and International Institute of Tropical Agriculture (IITA), Ibadan, Nigeria.}
-\cvitem{2013--2014}{MSc, Telecommunication with Business, \textbf{Distinction} (\textbf{First in Class}), \textbf{University College London}, London, UK}
-\cvitem{2004--2010}{BSc, Electrical and Electronic Engineering, \textbf{First Class Honours} (top 2\% of engineering undergraduates), \textbf{Olabisi Onabanjo University}, Ogun, Nigeria}
+
+\cvitem{2022--2023}{
+MBA elective, \textbf{Innovation to Market (I2M)} Course,
+\textbf{London Business School}, London, UK
+}
+
+\cvitem{2016--2020}{
+PhD, Electronic and Electrical Engineering,
+\textbf{University College London}, London, UK.
+Developed amplifier architectures and techniques with
+\textbf{world-record speed} in microwave electronics; produced 9 publications
+and 5 presentations at leading conferences; completed visiting research
+positions at Chalmers University of Technology, University of Ljubljana,
+and International Institute of Tropical Agriculture (IITA), Ibadan, Nigeria.
+}
+
+\cvitem{2013--2014}{
+MSc, Telecommunication with Business,
+\textbf{Distinction} (\textbf{First in Class}),
+\textbf{University College London}, London, UK
+}
+
+\cvitem{2004--2010}{
+BSc, Electrical and Electronic Engineering,
+\textbf{First Class Honours} (top 2\% of engineering undergraduates),
+\textbf{Olabisi Onabanjo University}, Ogun, Nigeria
+}
+
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
+% ACADEMIC APPOINTMENTS AND RESEARCH EXPERIENCE
+%----------------------------------------------------------------------------------------
+
 \section{Academic Appointments and Research Experience}
 
-\role{University College London, London, UK}{Sep 2023--Present}{Royal Academy of Engineering Research Fellow}
+\role
+{University College London, London, UK}
+{Sep 2023--Present}
+{Royal Academy of Engineering Research Fellow}
+
 \begin{itemize}
     \item Lead the THRIVE programme: \emph{Agri-tech for Sustainable Development: Crop Yield Prediction, Evaluation and Improvement}.
     \item Develop intelligent sensing systems for climate-smart agriculture, integrating IoT environmental sensing, RF crop quality sensors, AI-enabled crop growth models and multi-source data integration.
@@ -74,26 +228,42 @@ Microwave Electronics; Agrifood electronics; bioimpedance sensing; IoT and edge 
     \item Coordinate interdisciplinary collaboration with academic, industry and agricultural partners across Europe and Africa.
 \end{itemize}
 
-\role{University College London, London, UK}{Feb 2020--Aug 2023}{Research Associate (Postdoctoral), Optical Networks Group}
+\role
+{University College London, London, UK}
+{Feb 2020--Aug 2023}
+{Research Associate (Postdoctoral), Optical Networks Group}
+
 \begin{itemize}
     \item Employed on EPSRC project EP/R041792/1: Photonically-Synthesized Digital-to-Analogue Conversion (PhotoDAC).
     \item Designed and prototyped a novel high-speed 8-channel receiver assembly enabling high-resolution photonic digital-to-analogue conversion for arbitrary RF signal generation beyond electronic fabrication limits.
 \end{itemize}
 
-\role{University College London, London, UK}{Oct 2019--Feb 2020}{Research Assistant, Optical Networks Group}
+\role
+{University College London, London, UK}
+{Oct 2019--Feb 2020}
+{Research Assistant, Optical Networks Group}
+
 \begin{itemize}
     \item Designed microstrip-based analogue equalizers for low-cost bandwidth enhancement of directly modulated lasers from DC to 30 GHz+.
     \item Designed transimpedance amplifiers to extend optical frequency comb bandwidth for photonic analogue-to-digital conversion.
 \end{itemize}
 
-\role{University College London, London, UK}{Jan 2019--Jul 2019}{Research Assistant, Communications and Information Systems Group}
+\role
+{University College London, London, UK}
+{Jan 2019--Jul 2019}
+{Research Assistant, Communications and Information Systems Group}
+
 \begin{itemize}
     \item Lead researcher on ASPIRE: \emph{Agri-tech for Sustainable Development: Crop Quality Evaluation and Prediction using RF/Microwave Properties}; visiting research position at IITA, Ibadan, Nigeria.
     \item Led international multidisciplinary research to design test instrument hardware and protocols for measuring cassava quality.
     \item Designed and fabricated prototype test instruments and led successful field trials in West Africa.
 \end{itemize}
 
-\role{University College London, London, UK}{Feb 2016--Feb 2020}{PhD Researcher, Electrical and Electronic Engineering}
+\role
+{University College London, London, UK}
+{Feb 2016--Feb 2020}
+{PhD Researcher, Electrical and Electronic Engineering}
+
 \begin{itemize}
     \item Developed amplifier bandwidth extension techniques with world-record high-speed performance.
     \item Developed a derivative distributed amplifier architecture with strong gain-bandwidth and MMIC-footprint advantages.
@@ -101,117 +271,237 @@ Microwave Electronics; Agrifood electronics; bioimpedance sensing; IoT and edge 
     \item Collaborated with Athens Information Technology on microstrip parasitic patch antennas with beam shaping and steering functionalities.
 \end{itemize}
 
-\role{Chalmers University of Technology, G\"oteborg, Sweden}{Mar 2017--Feb 2020}{Visiting Researcher, Department of Microtechnology and Nanoscience (MC2)}
+\role
+{Chalmers University of Technology, G\"oteborg, Sweden}
+{Mar 2017--Feb 2020}
+{Visiting Researcher, Department of Microtechnology and Nanoscience (MC2)}
+
 \begin{itemize}
     \item Designed and measured ultra-wideband distributed MMIC amplifiers based on InP and SiGe processes.
     \item Conducted theoretical and experimental design of analogue equalizers and drivers for VCSEL-based high-capacity links in high-performance computing applications.
 \end{itemize}
 
-\role{University of Ljubljana, Ljubljana, Slovenia}{May 2018}{Visiting Researcher, Radiation and Optics Laboratory, Faculty of Engineering}
+\role
+{University of Ljubljana, Ljubljana, Slovenia}
+{May 2018}
+{Visiting Researcher, Radiation and Optics Laboratory, Faculty of Engineering}
+
 \begin{itemize}
     \item Designed coupled-line electronic bandpass filters to improve optoelectronic oscillator selectivity at 10 GHz and 39 GHz.
     \item Investigated composite electronic filter structures for improved narrowband performance.
 \end{itemize}
 
 %----------------------------------------------------------------------------------------
+% RESEARCH FUNDING
+%----------------------------------------------------------------------------------------
+
 \section{Research Funding}
-\subsection*{2025 | Accelerating Crop Innovation: AI and IoT for Rapid Deployment of High Yield, Climate-Resilient Varieties (ACCORD) | \textbf{Primary Investigator}}
-\textbf{\pounds92k} Huawei Exploratory Grant.
 
-\subsection*{2025 | IT Platform to Reveal Cassava Genetic Diversity to Support the Future of Africa's Dining Tables | \textbf{Co-Investigator}}
-\textbf{JPY 5M} The Japan Prize Foundation.
+\funding
+{2025 | Accelerating Crop Innovation: AI and IoT for Rapid Deployment of High Yield, Climate-Resilient Varieties (ACCORD) | \textbf{Primary Investigator}}
+{\textbf{\pounds92k} Huawei Exploratory Grant.}
 
-\subsection*{2024 | Consortium Building and Proposal Development: Strengthening Europe's Resilience Against Chemical, Biological and Radiological Threats in Agriculture and Food Systems | \textbf{Principal Investigator}}
-\textbf{\pounds10k} The British Academy.
+\funding
+{2025 | IT Platform to Reveal Cassava Genetic Diversity to Support the Future of Africa's Dining Tables | \textbf{Co-Investigator}}
+{\textbf{JPY 5M} The Japan Prize Foundation.}
 
-\subsection*{2023 | Agri-Tech for Sustainable Development: Crop Yield Prediction, Evaluation and Improvement (THRIVE) | \textbf{Principal Investigator}}
-\textbf{\pounds625k} Royal Academy of Engineering, Engineering for Development Research Fellowship.
+\funding
+{2024 | Consortium Building and Proposal Development: Strengthening Europe's Resilience Against Chemical, Biological and Radiological Threats in Agriculture and Food Systems | \textbf{Principal Investigator}}
+{\textbf{\pounds10k} The British Academy.}
 
-\subsection*{2022 | oNe hEalth SusTainabiLity partnership between EU-AFRICA for food sEcuRity (NESTLER) | \textbf{Named Researcher and Co-author of Proposal}}
-\textbf{\texteuro5.25M} Horizon Europe Framework Programme (HORIZON-CL6-2021-FARM2FORK-01-18).
+\funding
+{2023 | Agri-Tech for Sustainable Development: Crop Yield Prediction, Evaluation and Improvement (THRIVE) | \textbf{Principal Investigator}}
+{\textbf{\pounds625k} Royal Academy of Engineering, Engineering for Development Research Fellowship.}
 
-\subsection*{2022 | Agri-tech for Sustainable Development: CroP QualIty Evaluation and Prediction Ecosystem (ASPIRE) | \textbf{Named Researcher and Lead Author of Proposal}}
-\textbf{\pounds20k} UCL-Business Social Ventures Proof of Concept Funding.
+\funding
+{2022 | oNe hEalth SusTainabiLity partnership between EU-AFRICA for food sEcuRity (NESTLER) | \textbf{Named Researcher and Co-author of Proposal}}
+{\textbf{\texteuro5.25M} Horizon Europe Framework Programme (HORIZON-CL6-2021-FARM2FORK-01-18).}
 
-\subsection*{2018 | Agri-tech for Sustainable Development: Crop Quality Evaluation and Prediction based on RF/Microwave Properties (ASPIRE) | \textbf{Named Researcher and Lead Author of Proposal}}
-\textbf{\pounds100k} UCL-GCRF grant to develop RF/microwave solutions for quality estimation of root crops.
+\funding
+{2022 | Agri-tech for Sustainable Development: CroP QualIty Evaluation and Prediction Ecosystem (ASPIRE) | \textbf{Named Researcher and Lead Author of Proposal}}
+{\textbf{\pounds20k} UCL-Business Social Ventures Proof of Concept Funding.}
+
+\funding
+{2018 | Agri-tech for Sustainable Development: Crop Quality Evaluation and Prediction based on RF/Microwave Properties (ASPIRE) | \textbf{Named Researcher and Lead Author of Proposal}}
+{\textbf{\pounds100k} UCL-GCRF grant to develop RF/microwave solutions for quality estimation of root crops.}
+
+%----------------------------------------------------------------------------------------
+% AWARDS
+%----------------------------------------------------------------------------------------
 
 \section{Awards}
-\subsection*{2017 | Winner, Agricultural Technology Hackathon organised by UCL and Rothamsted Research}
-\textbf{\pounds10k} grant funding to develop prototypes for crop qualitative analysis based on electrical properties.
 
-\subsection*{2012 | Presidential Scholarship Scheme for Innovation and Development (PRESSID), Nigeria}
-\textbf{\pounds300k} full sponsorship for MSc and PhD study.
+\funding
+{2017 | Winner, Agricultural Technology Hackathon organised by UCL and Rothamsted Research}
+{\textbf{\pounds10k} grant funding to develop prototypes for crop qualitative analysis based on electrical properties.}
+
+\funding
+{2012 | Presidential Scholarship Scheme for Innovation and Development (PRESSID), Nigeria}
+{\textbf{\pounds300k} full sponsorship for MSc and PhD study.}
 
 %----------------------------------------------------------------------------------------
+% SELECTED INVITED TALKS AND PANELS
+%----------------------------------------------------------------------------------------
+
 \section{Selected Invited Talks and Panels}
-\textbf{Key Technologies for Smart Agri-Food Systems} \\
-Invited Panellist, \textit{Smart Agri-Food Systems: Collaborating for a Resilient Future}, IEEE SmartAg Workshop, Cagliari, Italy, 25 September 2026. Invited to contribute 
-expert perspectives on enabling technologies for resilient agri-food systems, including RF/microwave sensing, 
-IoT, remote sensing and AI-enabled crop assessment.
 
-\textbf{Growing Crops for a Changing Climate: Insights from Cassava Field Experiments}\\
-My Climate Risk Interdisciplinary Learning Group, 2026, The Pearl
-University of Reading
+\invitedtalk
+{Key Technologies for Smart Agri-Food Systems}
+{Invited Panellist, \textit{Smart Agri-Food Systems: Collaborating for a Resilient Future}, IEEE SmartAg Workshop, Cagliari, Italy, 25 September 2026. Invited to contribute expert perspectives on enabling technologies for resilient agri-food systems, including RF/microwave sensing, IoT, remote sensing and AI-enabled crop assessment.}
 
-\textbf{From Needs to Innovation: Advancing Sensor Systems for Sustainable Farming}\\
-Special Session on Sensors for Precision Agriculture Applications, 2025 IEEE Sensors Applications Symposium (SAS 2025), Newcastle upon Tyne, UK.
+\invitedtalk
+{Growing Crops for a Changing Climate: Insights from Cassava Field Experiments}
+{My Climate Risk Interdisciplinary Learning Group, 2026, The Pearl University of Reading}
 
-\textbf{Future IIoT Networks for Agriculture}\\
-Special Session on Challenges and Opportunities in IIoT, 2025 IEEE International Symposium on Circuits and Systems (ISCAS 2025), London, UK, 28 May 2025.
+\invitedtalk
+{From Needs to Innovation: Advancing Sensor Systems for Sustainable Farming}
+{Special Session on Sensors for Precision Agriculture Applications, 2025 IEEE Sensors Applications Symposium (SAS 2025), Newcastle upon Tyne, UK.}
 
-\textbf{Crop Quality Sensing: Harnessing Electrical Reflection for Smart Agriculture}\\
-1st One-Health Agri-Tech Workshop: Exploring Smart Solutions for a Sustainable Future, Horizon Europe NESTLER project, Athens, Greece, 27 May 2025.
+\invitedtalk
+{Future IIoT Networks for Agriculture}
+{Special Session on Challenges and Opportunities in IIoT, 2025 IEEE International Symposium on Circuits and Systems (ISCAS 2025), London, UK, 28 May 2025.}
 
-\textbf{Developing Technology Solutions for Net Zero Agriculture in the Global South}\\
-Net Zero: Technology for Emerging Challenges, UKRI-funded EPSRC eFutures Network+, Belfast, Northern Ireland, 11--13 September 2024.
+\invitedtalk
+{Crop Quality Sensing: Harnessing Electrical Reflection for Smart Agriculture}
+{1st One-Health Agri-Tech Workshop: Exploring Smart Solutions for a Sustainable Future, Horizon Europe NESTLER project, Athens, Greece, 27 May 2025.}
+
+\invitedtalk
+{Developing Technology Solutions for Net Zero Agriculture in the Global South}
+{Net Zero: Technology for Emerging Challenges, UKRI-funded EPSRC eFutures Network+, Belfast, Northern Ireland, 11--13 September 2024.}
 
 %----------------------------------------------------------------------------------------
+% TEACHING EXPERIENCE
+%----------------------------------------------------------------------------------------
+
 \section{Teaching Experience}
+
 \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
-\cvitem{2019--Present}{Lecturing and module support, Department of Electronic and Electrical Engineering, Telecommunications MSc courses, \textbf{University College London}. Course: Introduction to Telecommunication Networks (ITN). Delivered teaching and assessment support for MSc cohorts of approximately 70 students annually.}
-\cvitem{2020--Present}{Postdoctoral Teaching Associate, Department of Electronic and Electrical Engineering, Information and Communication Engineering Group, \textbf{University College London}.}
-\cvitem{2023--2024}{Adjunct Lecturer, Department of Engineering and Construction, \textbf{University of East London}. Course: Digital Communications and Telecommunication Networks.}
-\cvitem{2016--2020}{Postgraduate Teaching Assistant, Department of Electronic and Electrical Engineering, \textbf{University College London}. Courses: Analog and Power Electronics, Integrated Engineering Program, Broadband Communications and Robotics Programming.}
+
+\cvitem{2019--Present}{
+Lecturing and module support, Department of Electronic and Electrical Engineering,
+Telecommunications MSc courses, \textbf{University College London}.
+Course: Introduction to Telecommunication Networks (ITN).
+Delivered teaching and assessment support for MSc cohorts of approximately 70 students annually.
+}
+
+\cvitem{2020--Present}{
+Postdoctoral Teaching Associate, Department of Electronic and Electrical Engineering,
+Information and Communication Engineering Group,
+\textbf{University College London}.
+}
+
+\cvitem{2023--2024}{
+Adjunct Lecturer, Department of Engineering and Construction,
+\textbf{University of East London}.
+Course: Digital Communications and Telecommunication Networks.
+}
+
+\cvitem{2016--2020}{
+Postgraduate Teaching Assistant, Department of Electronic and Electrical Engineering,
+\textbf{University College London}.
+Courses: Analog and Power Electronics, Integrated Engineering Program,
+Broadband Communications and Robotics Programming.
+}
+
 \end{tabularx}
 
+%----------------------------------------------------------------------------------------
+% RESEARCH SUPERVISION AND EXAMINATION
+%----------------------------------------------------------------------------------------
+
 \section{Research Supervision and Examination}
+
 Research supervision and examination experience includes one external PhD examination, one PhD graduate, two MSc research projects and selected BSc research projects in smart agriculture, crop sensing, telecommunications and RF systems.
 
 \subsection*{PhD Students Examined}
+
 \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
-\cvitem{2025}{Dalhatu Muhammed, Sorbonne University and ISEP (Doctoral School EDITE de Paris, ED130). \emph{Thesis:} Development of Artificial Intelligence-Based Diagnosis Application for Diseases Affecting Solanaceous Crops for Improved Productivity in the Nigerian Savanna.}
-\cvitem{2026}{Fedrico Cum, Politecnico di Torino, Scuola di Dottorato (Doctoral School). \emph{Thesis:} Bio-Impedance Measurements for Plants Health Evaluation.}
+
+\cvitem{2025}{
+Dalhatu Muhammed, Sorbonne University and ISEP
+(Doctoral School EDITE de Paris, ED130).
+\emph{Thesis:} Development of Artificial Intelligence-Based Diagnosis Application for Diseases Affecting Solanaceous Crops for Improved Productivity in the Nigerian Savanna.
+}
+
+\cvitem{2026}{
+Fedrico Cum, Politecnico di Torino, Scuola di Dottorato (Doctoral School).
+\emph{Thesis:} Bio-Impedance Measurements for Plants Health Evaluation.
+}
+
 \end{tabularx}
 
 \subsection*{PhD Students Graduated}
+
 \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
-\cvitem{2025}{Dr Abdulrahman Alshehry, Department of Electronic and Electrical Engineering, UCL. \emph{Thesis:} Clock and Carrier Synchronization Using Optical Frequency Combs in Radio Access Networks.}
+
+\cvitem{2025}{
+Dr Abdulrahman Alshehry, Department of Electronic and Electrical Engineering, UCL.
+\emph{Thesis:} Clock and Carrier Synchronization Using Optical Frequency Combs in Radio Access Networks.
+}
+
 \end{tabularx}
 
 \subsection*{Current PhD Students}
-\begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
-\cvitem{In progress}{Fatemeh Tavana, Department of Electronic and Electrical Engineering, UCL. \emph{Thesis:} Impedance-based Guidance System for Intrarticular Injection using Unmodified Needle.}
 
-\cvitem{In progress}{Adeoluwa Oyinlola, Department of Electronic and Electrical Engineering, UCL. \emph{Thesis:} AI-Enabled Crop Quality Characterisation using Impedance-based Sensing.}
+\begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
+
+\cvitem{In progress}{
+Fatemeh Tavana, Department of Electronic and Electrical Engineering, UCL.
+\emph{Thesis:} Impedance-based Guidance System for Intrarticular Injection using Unmodified Needle.
+}
+
+\cvitem{In progress}{
+Adeoluwa Oyinlola, Department of Electronic and Electrical Engineering, UCL.
+\emph{Thesis:} AI-Enabled Crop Quality Characterisation using Impedance-based Sensing.
+}
+
 \end{tabularx}
 
 \subsection*{Selected MSc Research Projects Supervised}
+
 \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
-\cvitem{2023--2024}{Ms Yut Zhou, MSc in Telecommunications, UCL. \emph{Thesis:} IoT and Satellite Environmental Data for Predictive Crop Yield Modelling.}
-\cvitem{2024--2025}{Mr Ruixiang Zhu, MSc in Telecommunications, UCL. \emph{Thesis:} Metamaterials Operating at 28 GHz for Future Telecommunications.}
+
+\cvitem{2023--2024}{
+Ms Yut Zhou, MSc in Telecommunications, UCL.
+\emph{Thesis:} IoT and Satellite Environmental Data for Predictive Crop Yield Modelling.
+}
+
+\cvitem{2024--2025}{
+Mr Ruixiang Zhu, MSc in Telecommunications, UCL.
+\emph{Thesis:} Metamaterials Operating at 28 GHz for Future Telecommunications.
+}
+
 \end{tabularx}
 
 \subsection*{Selected BSc Projects Supervised}
+
 \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
-\cvitem{2023--2024}{Mr Ali Issa, 3rd Year Undergraduate Project, UCL. \emph{Thesis:} Design of IoT Platform for Smart Agriculture.}
-\cvitem{2024--2025}{Mr Phuris Soontrapornchai, 3rd Year Undergraduate Project, UCL. \emph{Thesis:} Machine Vision for Measuring Dimensions and Morphological Descriptions of Root Crops.}
-\cvitem{2025--2026}{Mr Finlay Dunn, 3rd Year Undergraduate Project, UCL. \emph{Thesis:} Electrochemical Impedance Spectroscopy (EIS) for Plant Health Monitoring.}
+
+\cvitem{2023--2024}{
+Mr Ali Issa, 3rd Year Undergraduate Project, UCL.
+\emph{Thesis:} Design of IoT Platform for Smart Agriculture.
+}
+
+\cvitem{2024--2025}{
+Mr Phuris Soontrapornchai, 3rd Year Undergraduate Project, UCL.
+\emph{Thesis:} Machine Vision for Measuring Dimensions and Morphological Descriptions of Root Crops.
+}
+
+\cvitem{2025--2026}{
+Mr Finlay Dunn, 3rd Year Undergraduate Project, UCL.
+\emph{Thesis:} Electrochemical Impedance Spectroscopy (EIS) for Plant Health Monitoring.
+}
+
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
+% PROFESSIONAL LEADERSHIP AND SERVICE
+%----------------------------------------------------------------------------------------
+
 \section{Professional Leadership and Service}
+
 \subsection*{Professional Leadership and Governance}
+
 \begin{itemize}
     \item Secretary, IEEE Circuits and Systems Society (CASS) Special Interest Group on Agrifood Electronics (2026--Present).
     \item Member, University College London Academic Board (2026--Present).
@@ -221,11 +511,13 @@ Research supervision and examination experience includes one external PhD examin
 \end{itemize}
 
 \subsection*{Editorial Appointments}
+
 \begin{itemize}
     \item Associate Editor, \emph{IEEE Transactions on Agrifood Electronics} (2025--Present).
 \end{itemize}
 
 \subsection*{Professional Memberships}
+
 \begin{itemize}
     \item Senior Member, Institute of Electrical and Electronics Engineers (IEEE).
     \item Member, IEEE Circuits and Systems Society (CASS) (2022--Present).
@@ -235,6 +527,7 @@ Research supervision and examination experience includes one external PhD examin
 \end{itemize}
 
 \subsection*{Research Assessment and Peer Review}
+
 \begin{itemize}
     \item Member, Engineering and Physical Sciences Research Council (EPSRC) Peer Review College (2026--Present).
     \item Expert Reviewer, European Commission Grants Management Services (2024--Present).
@@ -246,30 +539,33 @@ Research supervision and examination experience includes one external PhD examin
 
 \begin{itemize}
 
-   \item \textbf{Food and Agriculture Organization of the United Nations (FAO) -- Africa Forum on Science and Innovation for Agrifood Systems Transformation (ASIF)} (2026) -- Selected technical contributor and invited presenter at the FAO Regional Office for Africa's continental science--innovation--policy forum, presenting the THRIVE Platform and contributing evidence towards policy and investment dialogue and a regional roadmap for strengthening Africa's agrifood research and innovation ecosystem.
- 
+    \item \textbf{Food and Agriculture Organization of the United Nations (FAO) -- Africa Forum on Science and Innovation for Agrifood Systems Transformation (ASIF)} (2026) -- Selected technical contributor and invited presenter at the FAO Regional Office for Africa's continental science--innovation--policy forum, presenting the THRIVE Platform and contributing evidence towards policy and investment dialogue and a regional roadmap for strengthening Africa's agrifood research and innovation ecosystem.
+
     \item \textbf{UK Government Smart Data Consultation}, Royal Academy of Engineering (2026) -- Invited expert contributor to the Academy's response to the UK Government consultation on Smart Data, drawing on expertise in sensing, IoT and data-driven technologies.
 
     \item \textbf{Africa--China Export Readiness 2026: Nigeria Cassava}, Ng Teng Fong $\cdot$ Sino Group Belt and Road Research Institute, Hong Kong Chu Hai College (2026) -- Invited expert contributor on cassava productivity, quality assessment and the export readiness of Nigerian cassava products for the Chinese market.
 
-     \item \textbf{UK Parliament Science, Innovation and Technology Committee Inquiry: Innovation and Global Food Security} (2025) -- Expert consulted in the preparation of written evidence submitted by the UCL Faculty of Engineering Sciences (IGF0012), contributing expertise on the application of engineering innovation and emerging technologies to global food security.
+    \item \textbf{UK Parliament Science, Innovation and Technology Committee Inquiry: Innovation and Global Food Security} (2025) -- Expert consulted in the preparation of written evidence submitted by the UCL Faculty of Engineering Sciences (IGF0012), contributing expertise on the application of engineering innovation and emerging technologies to global food security.
 
     \item \textbf{Kingsgate Advisors Institute Expert Consultation} (2025) -- Invited expert contribution on the application of AI, data and advanced technologies to resilient and food-secure systems in sub-Saharan Africa.
 
 \end{itemize}
 
-% \subsection*{Policy and Expert Engagement} \begin{itemize} \item \textbf{UK Parliament Science, Innovation and Technology Committee Inquiry: Innovation and Global Food Security} (2025) -- Expert consulted in the preparation of written evidence submitted by the UCL Faculty of Engineering Sciences (IGF0012), contributing expertise on the application of engineering innovation and emerging technologies to global food security. \item \textbf{UK Government Smart Data Consultation}, Royal Academy of Engineering (2026) -- Invited expert contributor to the Academy's response to the UK Government consultation on Smart Data, drawing on expertise in sensing, IoT and data-driven technologies. \item \textbf{Africa--China Export Readiness 2026: Nigeria Cassava}, Ng Teng Fong $\cdot$ Sino Group Belt and Road Research Institute, Hong Kong Chu Hai College (2026) -- Invited expert contributor on cassava productivity, quality assessment and the export readiness of Nigerian cassava products for the Chinese market. \item \textbf{Kingsgate Advisors Institute Expert Consultation} (2025) -- Invited expert contribution on the application of AI, data and advanced technologies to resilient and food-secure systems in sub-Saharan Africa. \end{itemize}
-
-
 \subsection*{Professional and Community Engagement}
+
 \begin{itemize}
     \item Youth Mentor and Outreach Volunteer, HoP Trust, London (2013--Present).
     \item Media and Technical Support Lead, HoP Trust - produced over \textbf{500 hours} of online educational content covering leadership, vision, engineering and personal development.
 \end{itemize}
 
 %----------------------------------------------------------------------------------------
+% PROFESSIONAL DEVELOPMENT AND CERTIFICATION
+%----------------------------------------------------------------------------------------
+
 \section{Professional Development and Certification}
+
 \subsection*{Selected Professional Development}
+
 \begin{itemize}
     \item Media Training Workshop: Building Connections with Industry Partners, July 2026
     \item Royal Society Leadership Effectiveness, Imperial Executive Education, January 2026
@@ -282,37 +578,34 @@ Research supervision and examination experience includes one external PhD examin
     \item Business and Commercialisation Training Programme, Royal Academy of Engineering, October--November 2023.
 \end{itemize}
 
+%----------------------------------------------------------------------------------------
+% PROFESSIONAL QUALIFICATIONS AND RECOGNITION
+%----------------------------------------------------------------------------------------
+
 \section{Professional Qualifications and Recognition}
-\subsubsection*{Senior Member, Institute of Electrical and Electronics Engineers, SMIEEE (2025)} 
 
-\subsubsection*{Associate Fellow of the Higher Education Academy, AFHEA (2026)}
+\qualification{Senior Member, Institute of Electrical and Electronics Engineers, SMIEEE (2025)}
 
-\subsubsection*{PRINCE2® Project Management Registered Practitioner (2013)}
+\qualification{Associate Fellow of the Higher Education Academy, AFHEA (2026)}
 
-\subsubsection*{Mental Health First Aider (MHFAider) MHFA England (2023)}
+\qualification{PRINCE2® Project Management Registered Practitioner (2013)}
 
-
-
-% \begin{itemize}
-%     \item Associate Fellow of the Higher Education Academy (AFHEA), Advance HE (2025)
-%     \item Senior Member, Institute of Electrical and Electronics Engineers (IEEE) (2025)
-%     \item PRINCE2\textregistered{} Foundation and Practitioner Certification, The Knowledge Academy, Berkshire, UK, (2013)
-% \end{itemize}
-
-% \subsection*{Certification}
-% \begin{itemize}
-%     \item PRINCE2\textregistered{} Foundation and Practitioner Certification, The Knowledge Academy, Berkshire, UK, 2013.
-%     \item Mental Health First Aider (MHFAider), MHFA England, 2023.
-% \end{itemize}
+\qualification{Mental Health First Aider (MHFAider) MHFA England (2023)}
 
 %----------------------------------------------------------------------------------------
+% RESEARCH INFRASTRUCTURE AND TECHNICAL EXPERTISE
+%----------------------------------------------------------------------------------------
+
 \section{Research Infrastructure and Technical Expertise}
+
 \subsection*{Core Technical Expertise}
+
 \begin{itemize}
     \item RF and microwave electronics; RF reflectometry; bioimpedance and impedance spectroscopy; IoT sensing systems; crop quality sensing; crop growth and yield modelling; machine learning for sensing and classification; UAV and environmental data integration; digital agriculture systems.
 \end{itemize}
 
 \subsection*{Software, Design and Test Platforms}
+
 \begin{itemize}
     \item Keysight ADS, Momentum and EMPro for RF, microwave and terahertz circuit modelling, simulation and layout.
     \item Cadence IC design platforms; Ansys HFSS and CST Microwave Studio for EM-field simulation and planar antenna modelling.
@@ -321,35 +614,465 @@ Research supervision and examination experience includes one external PhD examin
 \end{itemize}
 
 %----------------------------------------------------------------------------------------
+% SELECTED PUBLICATIONS
+%----------------------------------------------------------------------------------------
+
 \section{Selected Publications}
+
 The breadth of interdisciplinary collaborations has afforded me the opportunity to develop solutions for applications ranging from optical and visible light communication to crop characterisation. I have designed over 20 circuits using technologies ranging from off-the-shelf PCB/surface-mount designs to advanced integrated circuit technologies. Key publications are listed below in reverse chronological order, with the most relevant marked with an asterisk (\textbf{*}).
 
+\vspace{2mm}
+
 \begin{enumerate}[leftmargin=*]
+
 \item \textbf{*} \textbf{T. Odedeyi}, A. Oyinlola, and I. Darwazeh, ``Live Demonstration: AI-Aided RF Reflectometry for Rapid Adulteration and Contamination Detection in Food Products,'' in \emph{2026 IEEE International Symposium on Circuits and Systems (ISCAS)}, May 2026.
+
 \item \textbf{*} A. Beniwal, \textbf{T. Odedeyi}, and I. Darwazeh, ``Graphene/PEDOT:PSS Hybrid Ink-Based Flexible and Eco-Friendly Humidity Sensor for Early Plant Leaf Stress Monitoring,'' \emph{IEEE Sensors Letters}, 2026.
+
 \item L. Fl\'oid, \textbf{T. Odedeyi}, and I. Darwazeh, ``Framework for Enhancing Crop Yield Prediction using Statistically Downscaled Environmental Data,'' in \emph{2025 IEEE AFRICON}, 2025.
+
 \item \textbf{*} A. Oyinlola and \textbf{T. Odedeyi}, ``Can ML Enhance the Accuracy of Crop Quality Assessment With Radio Frequency Reflectometry?,'' \emph{IEEE Transactions on AgriFood Electronics}, 2025.
+
 \item \textbf{*} A. Oyinlola and \textbf{T. Odedeyi}, ``Enhancing RF Reflectometry for Crop Quality Sensing Using AI-Based Frequency Selection,'' in \emph{IEEE BIOCAS}, San Diego, CA, July 2025.
+
 \item \textbf{*} A. Oyinlola and \textbf{T. Odedeyi}, ``Temperature Compensation in RF Reflectometry for Crop Quality Assessment,'' in \emph{2025 IEEE Conference on AgriFood Electronics (CAFE)}, 2025.
+
 \item \textbf{*} \textbf{T. Odedeyi} et al., ``IoT Environmental Sensing for Crop Yield Modelling and Optimisation: 6G Use Case,'' poster and extended abstract, \emph{EUCNC and 6G Summit}, Poznan, Poland, June 2025.
+
 \item \textbf{*} \textbf{T. Odedeyi} et al., ``Multi-Source Data Integration and IoT-Based Sensing for Crop Yield Modelling and Optimisation,'' workshop presentation, \emph{IEEE SmartAgr 2025}, Cork, Ireland, June 2025.
+
 \item \textbf{*} \textbf{T. Odedeyi}, ``Dual-Pin Impedance Probe for Crop Quality Estimation using the RF Return Loss Method,'' in \emph{IEEE Conference on Agrifood Electronics (CAFE)}, Greece, September 2024.
+
 \item G. Markarian, \textbf{T. Odedeyi} et al., ``Utilisation of Mesh-in-the-Sky and Advanced IoT Sensors in Agriculture,'' in \emph{IEEE Conference on Agrifood Electronics (CAFE)}, Greece, September 2024.
+
 \item \textbf{*} \textbf{T. Odedeyi}, A. Isa, C. Poole, and I. Darwazeh, ``High-Throughput Starch Content Estimation using RF Return Loss: Theory, Analysis and Test Instrument Design,'' in \emph{IEEE International Symposium on Circuits and Systems (ISCAS)}, Singapore, May 2024.
+
 \item \textbf{*} \textbf{T. Odedeyi} and I. Darwazeh, ``New Insights on Application of Return Loss Measurement for Starch Content Estimation in Cassava,'' in \emph{2023 IEEE AFRICON Conference Proceedings}, 2023.
+
 \item \textbf{*} \textbf{T. Odedeyi}, C. Poole, I. Rabbi, and I. Darwazeh, ``Estimation of Starch Content in Cassava Based on Coefficient of Reflection Measurement,'' \emph{Frontiers in Food Science and Technology}, vol. 2, 878023, 2022.
+
 \item \textbf{*} \textbf{T. Odedeyi}, C. Poole, X. Liu, A. Kassem, G. Oyebode, I. Rabbi, and I. Darwazeh, ``A Low-Cost Instrument for Estimating the Starch Content of Cassava Roots Based on the Measurement of RF Return Loss,'' in \emph{IEEE ISCAS FOODCAS}, Seville, Spain, October 2020.
+
 \item \textbf{*} \textbf{T. Odedeyi}, S. Giannakopoulos, H. Zirath, and I. Darwazeh, ``InP DHBT Single-Stage and Multiplicative Distributed Amplifiers for Ultra-Wideband Amplification,'' \emph{IEEE Transactions on Circuits and Systems I}, 2020.
+
 \item C. Deakin, \textbf{T. Odedeyi}, and Z. Liu, ``Dual Frequency Comb Photonic Analog-to-Digital Conversion,'' \emph{IEEE Photonics Society Summer Topicals}, Mexico, July 2020.
+
 \item \textbf{T. Odedeyi} and I. Darwazeh, ``Derivation of the Equivalent Input Noise of Multiplicative Distributed Amplifiers for Wideband Optical Receiver Applications,'' in \emph{IEEE International Symposium on Circuits and Systems (ISCAS)}, Seville, Spain, October 2020.
+
 \item \textbf{*} \textbf{T. Odedeyi}, S. Giannakopoulos, H. Zirath, and I. Darwazeh, ``Single-Stage and Multiplicative Distributed Amplifiers for 200GHz+ Amplification,'' in \emph{IEEE Asia Pacific Microwave Conference (APMC)}, Singapore, 2019.
+
 \item Z. Zhou, \textbf{T. Odedeyi}, B. Kelly, J. O'Carroll, R. Phelan, I. Darwazeh, and Z. Liu, ``Impact of Analog and Digital Pre-Emphasis on the Signal-to-Noise Ratio of Bandwidth-Limited Optical Transceivers,'' \emph{IEEE Photonics Journal}, 2020.
+
 \item M. A. Ilgaz, A. Lavric, \textbf{T. Odedeyi}, I. Darwazeh, and B. Batagelj, ``Adjustable Testing Setup for a Single-Loop Optoelectronic Oscillator with an Electrical Bandpass Filter,'' \emph{Turkish Journal of Electrical Engineering and Computer Sciences}, vol. 28, no. 3, pp. 1293--1302, 2020.
+
 \item M. A. Ilgaz, A. Lavric, \textbf{T. Odedeyi}, and B. Batagelj, ``Single-Loop Optoelectronic Oscillator at 10.4 GHz with a Cascaded Microstrip Bandpass Filter Configuration,'' in \emph{IEEE International Workshop on Fiber Optics in Access Networks (FOAN)}, September 2019.
+
 \item \textbf{T. Odedeyi}, C. Poole, and I. Darwazeh, ``Noise Analysis of Multiplicative Distributed Amplifiers,'' in \emph{IEEE International Symposium on Circuits and Systems (ISCAS)}, Sapporo, Japan, May 2019.
+
 \item \textbf{T. Odedeyi}, P. A. Haigh, and I. Darwazeh, ``Transmission Line Synthesis Approach to Extending the Bandwidth of LEDs for Visible Light Communication,'' in \emph{International Symposium on Communication Systems, Networks and Digital Signal Processing}, Budapest, Hungary, July 2018.
+
 \item \textbf{T. Odedeyi} and I. Darwazeh, ``Matrix Single Stage Distributed Amplifier Design for Ultra Wideband Application,'' in \emph{24th IEEE International Conference on Electronics, Circuits and Systems (ICECS)}, Batumi, Georgia, December 2017.
+
 \item \textbf{T. Odedeyi} and I. Darwazeh, ``Bandwidth Enhancement Technique for Bipolar Single Stage Distributed Amplifier Design,'' in \emph{Asia Pacific Microwave Conference (APMC)}, Kuala Lumpur, Malaysia, November 2017.
+
 \end{enumerate}
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% \documentclass[a4paper,10pt]{article}
+
+% \usepackage[utf8]{inputenc}
+% \usepackage[T1]{fontenc}
+% \usepackage{lmodern}
+% \usepackage[margin=1.55cm]{geometry}
+% \usepackage{enumitem}
+% \usepackage{titlesec}
+% \usepackage{xcolor}
+% \usepackage{hyperref}
+% \usepackage{textcomp}
+% \usepackage{tabularx}
+% \usepackage{array}
+
+% \definecolor{linkcolour}{rgb}{0,0.2,0.6}
+% \hypersetup{colorlinks=true, urlcolor=linkcolour, linkcolor=linkcolour}
+% \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+% \titlespacing{\section}{0pt}{4pt}{4pt}
+% \titleformat{\subsection}{\normalsize\bfseries\raggedright}{}{0em}{}
+% \titlespacing{\subsection}{0pt}{3pt}{2pt}
+% \setlist[itemize]{leftmargin=*, noitemsep, topsep=1pt}
+% \setlength{\parindent}{0pt}
+% \setlength{\parskip}{2pt}
+% \pagestyle{empty}
+
+% \newcommand{\cvitem}[2]{\textsc{#1} & #2\\[1mm]}
+% \newcommand{\role}[3]{\subsection*{#1 \hfill \normalfont #2}\vspace{-1mm}{\itshape #3}\vspace{1mm}}
+
+% \begin{document}
+
+% %----------------------------------------------------------------------------------------
+% % TITLE
+% %----------------------------------------------------------------------------------------
+% \begin{center}
+% {\Huge \textsc{Temitope Oluseun \textbf{Odedeyi}}}\\[2mm]
+% \href{mailto:t.odedeyi@ucl.ac.uk}{t.odedeyi@ucl.ac.uk} $|$ LinkedIn: \href{https://www.linkedin.com/in/temitope-o-odedeyi}{temitope-o-odedeyi} $|$ London, UK
+% \end{center}
+
+% %----------------------------------------------------------------------------------------
+% \section{Professional Profile}
+% Royal Academy of Engineering Research Fellow and Senior Research Fellow at University College London developing intelligent sensing technologies for sustainable agriculture and climate-resilient food systems. My research combines RF electronics, IoT sensing, machine learning and environmental data integration to develop low-cost technologies for crop monitoring, crop quality assessment and digital agriculture. I have secured over \textbf{\pounds850k} in competitive research funding as Principal Investigator and contributed to collaborative projects exceeding \textbf{\texteuro5M}. My work spans device design, AI-enabled modelling, field deployment and collaboration across Europe, Asia and sub-Saharan Africa.
+
+% \section{Career Highlights}
+% \begin{itemize}
+%     \item Royal Academy of Engineering Research Fellow, University College London.
+%     \item Principal Investigator on more than \textbf{\pounds850k} in competitive research funding.
+%     \item Contributor to more than \textbf{\texteuro5M} in international collaborative research programmes.
+%     \item \textbf{25+} peer-reviewed publications and conference papers across RF/microwave systems, photonics and agrifood electronics.
+%     \item Associate Editor, \emph{IEEE Transactions on AgriFood Electronics}.
+%     \item Member, EPSRC Peer Review College; IEEE Senior Member; Secretary, IEEE CASS Special Interest Group on Agrifood Electronics.
+%     \item International research experience and collaborations across the UK, Sweden, Slovenia, Nigeria, Ghana and Japan.
+% \end{itemize}
+
+% \section{Research Interests}
+% Microwave Electronics; Agrifood electronics; bioimpedance sensing; IoT and edge AI; crop growth and yield modelling; crop quality sensing; environmental sensing; digital agriculture; climate-resilient food systems.
+
+% %----------------------------------------------------------------------------------------
+% \section{Education}
+% \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
+% \cvitem{2022--2023}{MBA elective, \textbf{Innovation to Market (I2M)} Course, \textbf{London Business School}, London, UK}
+% \cvitem{2016--2020}{PhD, Electronic and Electrical Engineering, \textbf{University College London}, London, UK. Developed amplifier architectures and techniques with \textbf{world-record speed} in microwave electronics; produced 9 publications and 5 presentations at leading conferences; completed visiting research positions at Chalmers University of Technology, University of Ljubljana, and International Institute of Tropical Agriculture (IITA), Ibadan, Nigeria.}
+% \cvitem{2013--2014}{MSc, Telecommunication with Business, \textbf{Distinction} (\textbf{First in Class}), \textbf{University College London}, London, UK}
+% \cvitem{2004--2010}{BSc, Electrical and Electronic Engineering, \textbf{First Class Honours} (top 2\% of engineering undergraduates), \textbf{Olabisi Onabanjo University}, Ogun, Nigeria}
+% \end{tabularx}
+
+% %----------------------------------------------------------------------------------------
+% \section{Academic Appointments and Research Experience}
+
+% \role{University College London, London, UK}{Sep 2023--Present}{Royal Academy of Engineering Research Fellow}
+% \begin{itemize}
+%     \item Lead the THRIVE programme: \emph{Agri-tech for Sustainable Development: Crop Yield Prediction, Evaluation and Improvement}.
+%     \item Develop intelligent sensing systems for climate-smart agriculture, integrating IoT environmental sensing, RF crop quality sensors, AI-enabled crop growth models and multi-source data integration.
+%     \item Lead device and system design, field trials and commercial pilots, translating laboratory prototypes into deployable solutions for farmers and industrial users in sub-Saharan Africa.
+%     \item Coordinate interdisciplinary collaboration with academic, industry and agricultural partners across Europe and Africa.
+% \end{itemize}
+
+% \role{University College London, London, UK}{Feb 2020--Aug 2023}{Research Associate (Postdoctoral), Optical Networks Group}
+% \begin{itemize}
+%     \item Employed on EPSRC project EP/R041792/1: Photonically-Synthesized Digital-to-Analogue Conversion (PhotoDAC).
+%     \item Designed and prototyped a novel high-speed 8-channel receiver assembly enabling high-resolution photonic digital-to-analogue conversion for arbitrary RF signal generation beyond electronic fabrication limits.
+% \end{itemize}
+
+% \role{University College London, London, UK}{Oct 2019--Feb 2020}{Research Assistant, Optical Networks Group}
+% \begin{itemize}
+%     \item Designed microstrip-based analogue equalizers for low-cost bandwidth enhancement of directly modulated lasers from DC to 30 GHz+.
+%     \item Designed transimpedance amplifiers to extend optical frequency comb bandwidth for photonic analogue-to-digital conversion.
+% \end{itemize}
+
+% \role{University College London, London, UK}{Jan 2019--Jul 2019}{Research Assistant, Communications and Information Systems Group}
+% \begin{itemize}
+%     \item Lead researcher on ASPIRE: \emph{Agri-tech for Sustainable Development: Crop Quality Evaluation and Prediction using RF/Microwave Properties}; visiting research position at IITA, Ibadan, Nigeria.
+%     \item Led international multidisciplinary research to design test instrument hardware and protocols for measuring cassava quality.
+%     \item Designed and fabricated prototype test instruments and led successful field trials in West Africa.
+% \end{itemize}
+
+% \role{University College London, London, UK}{Feb 2016--Feb 2020}{PhD Researcher, Electrical and Electronic Engineering}
+% \begin{itemize}
+%     \item Developed amplifier bandwidth extension techniques with world-record high-speed performance.
+%     \item Developed a derivative distributed amplifier architecture with strong gain-bandwidth and MMIC-footprint advantages.
+%     \item Proposed analogue circuit design techniques achieving 400\% bandwidth improvement of light-emitting diodes for visible light communication.
+%     \item Collaborated with Athens Information Technology on microstrip parasitic patch antennas with beam shaping and steering functionalities.
+% \end{itemize}
+
+% \role{Chalmers University of Technology, G\"oteborg, Sweden}{Mar 2017--Feb 2020}{Visiting Researcher, Department of Microtechnology and Nanoscience (MC2)}
+% \begin{itemize}
+%     \item Designed and measured ultra-wideband distributed MMIC amplifiers based on InP and SiGe processes.
+%     \item Conducted theoretical and experimental design of analogue equalizers and drivers for VCSEL-based high-capacity links in high-performance computing applications.
+% \end{itemize}
+
+% \role{University of Ljubljana, Ljubljana, Slovenia}{May 2018}{Visiting Researcher, Radiation and Optics Laboratory, Faculty of Engineering}
+% \begin{itemize}
+%     \item Designed coupled-line electronic bandpass filters to improve optoelectronic oscillator selectivity at 10 GHz and 39 GHz.
+%     \item Investigated composite electronic filter structures for improved narrowband performance.
+% \end{itemize}
+
+% %----------------------------------------------------------------------------------------
+% \section{Research Funding}
+% \subsection*{2025 | Accelerating Crop Innovation: AI and IoT for Rapid Deployment of High Yield, Climate-Resilient Varieties (ACCORD) | \textbf{Primary Investigator}}
+% \textbf{\pounds92k} Huawei Exploratory Grant.
+
+% \subsection*{2025 | IT Platform to Reveal Cassava Genetic Diversity to Support the Future of Africa's Dining Tables | \textbf{Co-Investigator}}
+% \textbf{JPY 5M} The Japan Prize Foundation.
+
+% \subsection*{2024 | Consortium Building and Proposal Development: Strengthening Europe's Resilience Against Chemical, Biological and Radiological Threats in Agriculture and Food Systems | \textbf{Principal Investigator}}
+% \textbf{\pounds10k} The British Academy.
+
+% \subsection*{2023 | Agri-Tech for Sustainable Development: Crop Yield Prediction, Evaluation and Improvement (THRIVE) | \textbf{Principal Investigator}}
+% \textbf{\pounds625k} Royal Academy of Engineering, Engineering for Development Research Fellowship.
+
+% \subsection*{2022 | oNe hEalth SusTainabiLity partnership between EU-AFRICA for food sEcuRity (NESTLER) | \textbf{Named Researcher and Co-author of Proposal}}
+% \textbf{\texteuro5.25M} Horizon Europe Framework Programme (HORIZON-CL6-2021-FARM2FORK-01-18).
+
+% \subsection*{2022 | Agri-tech for Sustainable Development: CroP QualIty Evaluation and Prediction Ecosystem (ASPIRE) | \textbf{Named Researcher and Lead Author of Proposal}}
+% \textbf{\pounds20k} UCL-Business Social Ventures Proof of Concept Funding.
+
+% \subsection*{2018 | Agri-tech for Sustainable Development: Crop Quality Evaluation and Prediction based on RF/Microwave Properties (ASPIRE) | \textbf{Named Researcher and Lead Author of Proposal}}
+% \textbf{\pounds100k} UCL-GCRF grant to develop RF/microwave solutions for quality estimation of root crops.
+
+% \section{Awards}
+% \subsection*{2017 | Winner, Agricultural Technology Hackathon organised by UCL and Rothamsted Research}
+% \textbf{\pounds10k} grant funding to develop prototypes for crop qualitative analysis based on electrical properties.
+
+% \subsection*{2012 | Presidential Scholarship Scheme for Innovation and Development (PRESSID), Nigeria}
+% \textbf{\pounds300k} full sponsorship for MSc and PhD study.
+
+% %----------------------------------------------------------------------------------------
+% \section{Selected Invited Talks and Panels}
+% \textbf{Key Technologies for Smart Agri-Food Systems} \\
+% Invited Panellist, \textit{Smart Agri-Food Systems: Collaborating for a Resilient Future}, IEEE SmartAg Workshop, Cagliari, Italy, 25 September 2026. Invited to contribute 
+% expert perspectives on enabling technologies for resilient agri-food systems, including RF/microwave sensing, 
+% IoT, remote sensing and AI-enabled crop assessment.
+
+% \textbf{Growing Crops for a Changing Climate: Insights from Cassava Field Experiments}\\
+% My Climate Risk Interdisciplinary Learning Group, 2026, The Pearl
+% University of Reading
+
+% \textbf{From Needs to Innovation: Advancing Sensor Systems for Sustainable Farming}\\
+% Special Session on Sensors for Precision Agriculture Applications, 2025 IEEE Sensors Applications Symposium (SAS 2025), Newcastle upon Tyne, UK.
+
+% \textbf{Future IIoT Networks for Agriculture}\\
+% Special Session on Challenges and Opportunities in IIoT, 2025 IEEE International Symposium on Circuits and Systems (ISCAS 2025), London, UK, 28 May 2025.
+
+% \textbf{Crop Quality Sensing: Harnessing Electrical Reflection for Smart Agriculture}\\
+% 1st One-Health Agri-Tech Workshop: Exploring Smart Solutions for a Sustainable Future, Horizon Europe NESTLER project, Athens, Greece, 27 May 2025.
+
+% \textbf{Developing Technology Solutions for Net Zero Agriculture in the Global South}\\
+% Net Zero: Technology for Emerging Challenges, UKRI-funded EPSRC eFutures Network+, Belfast, Northern Ireland, 11--13 September 2024.
+
+% %----------------------------------------------------------------------------------------
+% \section{Teaching Experience}
+% \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
+% \cvitem{2019--Present}{Lecturing and module support, Department of Electronic and Electrical Engineering, Telecommunications MSc courses, \textbf{University College London}. Course: Introduction to Telecommunication Networks (ITN). Delivered teaching and assessment support for MSc cohorts of approximately 70 students annually.}
+% \cvitem{2020--Present}{Postdoctoral Teaching Associate, Department of Electronic and Electrical Engineering, Information and Communication Engineering Group, \textbf{University College London}.}
+% \cvitem{2023--2024}{Adjunct Lecturer, Department of Engineering and Construction, \textbf{University of East London}. Course: Digital Communications and Telecommunication Networks.}
+% \cvitem{2016--2020}{Postgraduate Teaching Assistant, Department of Electronic and Electrical Engineering, \textbf{University College London}. Courses: Analog and Power Electronics, Integrated Engineering Program, Broadband Communications and Robotics Programming.}
+% \end{tabularx}
+
+% \section{Research Supervision and Examination}
+% Research supervision and examination experience includes one external PhD examination, one PhD graduate, two MSc research projects and selected BSc research projects in smart agriculture, crop sensing, telecommunications and RF systems.
+
+% \subsection*{PhD Students Examined}
+% \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
+% \cvitem{2025}{Dalhatu Muhammed, Sorbonne University and ISEP (Doctoral School EDITE de Paris, ED130). \emph{Thesis:} Development of Artificial Intelligence-Based Diagnosis Application for Diseases Affecting Solanaceous Crops for Improved Productivity in the Nigerian Savanna.}
+% \cvitem{2026}{Fedrico Cum, Politecnico di Torino, Scuola di Dottorato (Doctoral School). \emph{Thesis:} Bio-Impedance Measurements for Plants Health Evaluation.}
+% \end{tabularx}
+
+% \subsection*{PhD Students Graduated}
+% \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
+% \cvitem{2025}{Dr Abdulrahman Alshehry, Department of Electronic and Electrical Engineering, UCL. \emph{Thesis:} Clock and Carrier Synchronization Using Optical Frequency Combs in Radio Access Networks.}
+% \end{tabularx}
+
+% \subsection*{Current PhD Students}
+% \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
+% \cvitem{In progress}{Fatemeh Tavana, Department of Electronic and Electrical Engineering, UCL. \emph{Thesis:} Impedance-based Guidance System for Intrarticular Injection using Unmodified Needle.}
+
+% \cvitem{In progress}{Adeoluwa Oyinlola, Department of Electronic and Electrical Engineering, UCL. \emph{Thesis:} AI-Enabled Crop Quality Characterisation using Impedance-based Sensing.}
+% \end{tabularx}
+
+% \subsection*{Selected MSc Research Projects Supervised}
+% \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
+% \cvitem{2023--2024}{Ms Yut Zhou, MSc in Telecommunications, UCL. \emph{Thesis:} IoT and Satellite Environmental Data for Predictive Crop Yield Modelling.}
+% \cvitem{2024--2025}{Mr Ruixiang Zhu, MSc in Telecommunications, UCL. \emph{Thesis:} Metamaterials Operating at 28 GHz for Future Telecommunications.}
+% \end{tabularx}
+
+% \subsection*{Selected BSc Projects Supervised}
+% \begin{tabularx}{\textwidth}{>{\raggedleft\arraybackslash}p{2.4cm} X}
+% \cvitem{2023--2024}{Mr Ali Issa, 3rd Year Undergraduate Project, UCL. \emph{Thesis:} Design of IoT Platform for Smart Agriculture.}
+% \cvitem{2024--2025}{Mr Phuris Soontrapornchai, 3rd Year Undergraduate Project, UCL. \emph{Thesis:} Machine Vision for Measuring Dimensions and Morphological Descriptions of Root Crops.}
+% \cvitem{2025--2026}{Mr Finlay Dunn, 3rd Year Undergraduate Project, UCL. \emph{Thesis:} Electrochemical Impedance Spectroscopy (EIS) for Plant Health Monitoring.}
+% \end{tabularx}
+
+% %----------------------------------------------------------------------------------------
+% \section{Professional Leadership and Service}
+% \subsection*{Professional Leadership and Governance}
+% \begin{itemize}
+%     \item Secretary, IEEE Circuits and Systems Society (CASS) Special Interest Group on Agrifood Electronics (2026--Present).
+%     \item Member, University College London Academic Board (2026--Present).
+%     \item Member, University College London, Electronic and Electrical Engineering Examination Board (2026--Present).
+%     \item Lead, Early Career Researchers (ECR) Group, Electronic and Electrical Engineering, UCL (2025--Present).
+%     \item Member, Board of Directors of the Kingsgate Advisors Institute (2025--Present)
+% \end{itemize}
+
+% \subsection*{Editorial Appointments}
+% \begin{itemize}
+%     \item Associate Editor, \emph{IEEE Transactions on Agrifood Electronics} (2025--Present).
+% \end{itemize}
+
+% \subsection*{Professional Memberships}
+% \begin{itemize}
+%     \item Senior Member, Institute of Electrical and Electronics Engineers (IEEE).
+%     \item Member, IEEE Circuits and Systems Society (CASS) (2022--Present).
+%     \item Member, IEEE CASS Special Interest Group on Agrifood Electronics (2022--Present).
+%     \item Member, Nigerian Society of Engineers (MNSE) (2011--Present).
+%     \item Member, Nigerian Institute of Management (Chartered) (2011--Present).
+% \end{itemize}
+
+% \subsection*{Research Assessment and Peer Review}
+% \begin{itemize}
+%     \item Member, Engineering and Physical Sciences Research Council (EPSRC) Peer Review College (2026--Present).
+%     \item Expert Reviewer, European Commission Grants Management Services (2024--Present).
+%     \item Expert Reviewer, National Science Centre, Poland (2019--Present).
+%     \item Reviewer for \emph{IEEE Transactions on Circuits and Systems I}, \emph{IEEE Transactions on Microwave Theory and Techniques}, \emph{Frontiers in Optical Communications and Networks}, and other international journals (10+ completed reviews).
+% \end{itemize}
+
+% \subsection*{Policy and Expert Engagement}
+
+% \begin{itemize}
+
+%    \item \textbf{Food and Agriculture Organization of the United Nations (FAO) -- Africa Forum on Science and Innovation for Agrifood Systems Transformation (ASIF)} (2026) -- Selected technical contributor and invited presenter at the FAO Regional Office for Africa's continental science--innovation--policy forum, presenting the THRIVE Platform and contributing evidence towards policy and investment dialogue and a regional roadmap for strengthening Africa's agrifood research and innovation ecosystem.
+ 
+%     \item \textbf{UK Government Smart Data Consultation}, Royal Academy of Engineering (2026) -- Invited expert contributor to the Academy's response to the UK Government consultation on Smart Data, drawing on expertise in sensing, IoT and data-driven technologies.
+
+%     \item \textbf{Africa--China Export Readiness 2026: Nigeria Cassava}, Ng Teng Fong $\cdot$ Sino Group Belt and Road Research Institute, Hong Kong Chu Hai College (2026) -- Invited expert contributor on cassava productivity, quality assessment and the export readiness of Nigerian cassava products for the Chinese market.
+
+%      \item \textbf{UK Parliament Science, Innovation and Technology Committee Inquiry: Innovation and Global Food Security} (2025) -- Expert consulted in the preparation of written evidence submitted by the UCL Faculty of Engineering Sciences (IGF0012), contributing expertise on the application of engineering innovation and emerging technologies to global food security.
+
+%     \item \textbf{Kingsgate Advisors Institute Expert Consultation} (2025) -- Invited expert contribution on the application of AI, data and advanced technologies to resilient and food-secure systems in sub-Saharan Africa.
+
+% \end{itemize}
+
+% % \subsection*{Policy and Expert Engagement} \begin{itemize} \item \textbf{UK Parliament Science, Innovation and Technology Committee Inquiry: Innovation and Global Food Security} (2025) -- Expert consulted in the preparation of written evidence submitted by the UCL Faculty of Engineering Sciences (IGF0012), contributing expertise on the application of engineering innovation and emerging technologies to global food security. \item \textbf{UK Government Smart Data Consultation}, Royal Academy of Engineering (2026) -- Invited expert contributor to the Academy's response to the UK Government consultation on Smart Data, drawing on expertise in sensing, IoT and data-driven technologies. \item \textbf{Africa--China Export Readiness 2026: Nigeria Cassava}, Ng Teng Fong $\cdot$ Sino Group Belt and Road Research Institute, Hong Kong Chu Hai College (2026) -- Invited expert contributor on cassava productivity, quality assessment and the export readiness of Nigerian cassava products for the Chinese market. \item \textbf{Kingsgate Advisors Institute Expert Consultation} (2025) -- Invited expert contribution on the application of AI, data and advanced technologies to resilient and food-secure systems in sub-Saharan Africa. \end{itemize}
+
+
+% \subsection*{Professional and Community Engagement}
+% \begin{itemize}
+%     \item Youth Mentor and Outreach Volunteer, HoP Trust, London (2013--Present).
+%     \item Media and Technical Support Lead, HoP Trust - produced over \textbf{500 hours} of online educational content covering leadership, vision, engineering and personal development.
+% \end{itemize}
+
+% %----------------------------------------------------------------------------------------
+% \section{Professional Development and Certification}
+% \subsection*{Selected Professional Development}
+% \begin{itemize}
+%     \item Media Training Workshop: Building Connections with Industry Partners, July 2026
+%     \item Royal Society Leadership Effectiveness, Imperial Executive Education, January 2026
+%     \item Systems Thinking Course, UCL Centre for Systems Engineering (UCLse), September 2025.
+%     \item Developing AI Policy, Fred Hutchinson Cancer Center, Coursera, August 2025.
+%     \item Developing as a Doctoral Supervisor, UCL Arena Centre, February 2025.
+%     \item The Nexus in Action: Navigating the Water-Energy-Food-Environment Nexus for Climate Resilient and Inclusive Futures, Royal Academy of Engineering Frontiers Symposium, Amman, Jordan, February 2024.
+%     \item Royal Society Policy Primer Course, Royal Society and King's Policy Institute, March 2024.
+%     \item UCL-Business I/O Lab: Exploring Commercial Potential of your Research, October--November 2023.
+%     \item Business and Commercialisation Training Programme, Royal Academy of Engineering, October--November 2023.
+% \end{itemize}
+
+% \section{Professional Qualifications and Recognition}
+% \subsubsection*{Senior Member, Institute of Electrical and Electronics Engineers, SMIEEE (2025)} 
+
+% \subsubsection*{Associate Fellow of the Higher Education Academy, AFHEA (2026)}
+
+% \subsubsection*{PRINCE2® Project Management Registered Practitioner (2013)}
+
+% \subsubsection*{Mental Health First Aider (MHFAider) MHFA England (2023)}
+
+
+
+% % \begin{itemize}
+% %     \item Associate Fellow of the Higher Education Academy (AFHEA), Advance HE (2025)
+% %     \item Senior Member, Institute of Electrical and Electronics Engineers (IEEE) (2025)
+% %     \item PRINCE2\textregistered{} Foundation and Practitioner Certification, The Knowledge Academy, Berkshire, UK, (2013)
+% % \end{itemize}
+
+% % \subsection*{Certification}
+% % \begin{itemize}
+% %     \item PRINCE2\textregistered{} Foundation and Practitioner Certification, The Knowledge Academy, Berkshire, UK, 2013.
+% %     \item Mental Health First Aider (MHFAider), MHFA England, 2023.
+% % \end{itemize}
+
+% %----------------------------------------------------------------------------------------
+% \section{Research Infrastructure and Technical Expertise}
+% \subsection*{Core Technical Expertise}
+% \begin{itemize}
+%     \item RF and microwave electronics; RF reflectometry; bioimpedance and impedance spectroscopy; IoT sensing systems; crop quality sensing; crop growth and yield modelling; machine learning for sensing and classification; UAV and environmental data integration; digital agriculture systems.
+% \end{itemize}
+
+% \subsection*{Software, Design and Test Platforms}
+% \begin{itemize}
+%     \item Keysight ADS, Momentum and EMPro for RF, microwave and terahertz circuit modelling, simulation and layout.
+%     \item Cadence IC design platforms; Ansys HFSS and CST Microwave Studio for EM-field simulation and planar antenna modelling.
+%     \item MATLAB for analytical modelling, data processing and electronic design automation.
+%     \item DipTrace and AutoCAD for PCB layout; Microsoft Office; \LaTeX{}; OriginLab for data analysis and publication-quality graphical representation.
+% \end{itemize}
+
+% %----------------------------------------------------------------------------------------
+% \section{Selected Publications}
+% The breadth of interdisciplinary collaborations has afforded me the opportunity to develop solutions for applications ranging from optical and visible light communication to crop characterisation. I have designed over 20 circuits using technologies ranging from off-the-shelf PCB/surface-mount designs to advanced integrated circuit technologies. Key publications are listed below in reverse chronological order, with the most relevant marked with an asterisk (\textbf{*}).
+
+% \begin{enumerate}[leftmargin=*]
+% \item \textbf{*} \textbf{T. Odedeyi}, A. Oyinlola, and I. Darwazeh, ``Live Demonstration: AI-Aided RF Reflectometry for Rapid Adulteration and Contamination Detection in Food Products,'' in \emph{2026 IEEE International Symposium on Circuits and Systems (ISCAS)}, May 2026.
+% \item \textbf{*} A. Beniwal, \textbf{T. Odedeyi}, and I. Darwazeh, ``Graphene/PEDOT:PSS Hybrid Ink-Based Flexible and Eco-Friendly Humidity Sensor for Early Plant Leaf Stress Monitoring,'' \emph{IEEE Sensors Letters}, 2026.
+% \item L. Fl\'oid, \textbf{T. Odedeyi}, and I. Darwazeh, ``Framework for Enhancing Crop Yield Prediction using Statistically Downscaled Environmental Data,'' in \emph{2025 IEEE AFRICON}, 2025.
+% \item \textbf{*} A. Oyinlola and \textbf{T. Odedeyi}, ``Can ML Enhance the Accuracy of Crop Quality Assessment With Radio Frequency Reflectometry?,'' \emph{IEEE Transactions on AgriFood Electronics}, 2025.
+% \item \textbf{*} A. Oyinlola and \textbf{T. Odedeyi}, ``Enhancing RF Reflectometry for Crop Quality Sensing Using AI-Based Frequency Selection,'' in \emph{IEEE BIOCAS}, San Diego, CA, July 2025.
+% \item \textbf{*} A. Oyinlola and \textbf{T. Odedeyi}, ``Temperature Compensation in RF Reflectometry for Crop Quality Assessment,'' in \emph{2025 IEEE Conference on AgriFood Electronics (CAFE)}, 2025.
+% \item \textbf{*} \textbf{T. Odedeyi} et al., ``IoT Environmental Sensing for Crop Yield Modelling and Optimisation: 6G Use Case,'' poster and extended abstract, \emph{EUCNC and 6G Summit}, Poznan, Poland, June 2025.
+% \item \textbf{*} \textbf{T. Odedeyi} et al., ``Multi-Source Data Integration and IoT-Based Sensing for Crop Yield Modelling and Optimisation,'' workshop presentation, \emph{IEEE SmartAgr 2025}, Cork, Ireland, June 2025.
+% \item \textbf{*} \textbf{T. Odedeyi}, ``Dual-Pin Impedance Probe for Crop Quality Estimation using the RF Return Loss Method,'' in \emph{IEEE Conference on Agrifood Electronics (CAFE)}, Greece, September 2024.
+% \item G. Markarian, \textbf{T. Odedeyi} et al., ``Utilisation of Mesh-in-the-Sky and Advanced IoT Sensors in Agriculture,'' in \emph{IEEE Conference on Agrifood Electronics (CAFE)}, Greece, September 2024.
+% \item \textbf{*} \textbf{T. Odedeyi}, A. Isa, C. Poole, and I. Darwazeh, ``High-Throughput Starch Content Estimation using RF Return Loss: Theory, Analysis and Test Instrument Design,'' in \emph{IEEE International Symposium on Circuits and Systems (ISCAS)}, Singapore, May 2024.
+% \item \textbf{*} \textbf{T. Odedeyi} and I. Darwazeh, ``New Insights on Application of Return Loss Measurement for Starch Content Estimation in Cassava,'' in \emph{2023 IEEE AFRICON Conference Proceedings}, 2023.
+% \item \textbf{*} \textbf{T. Odedeyi}, C. Poole, I. Rabbi, and I. Darwazeh, ``Estimation of Starch Content in Cassava Based on Coefficient of Reflection Measurement,'' \emph{Frontiers in Food Science and Technology}, vol. 2, 878023, 2022.
+% \item \textbf{*} \textbf{T. Odedeyi}, C. Poole, X. Liu, A. Kassem, G. Oyebode, I. Rabbi, and I. Darwazeh, ``A Low-Cost Instrument for Estimating the Starch Content of Cassava Roots Based on the Measurement of RF Return Loss,'' in \emph{IEEE ISCAS FOODCAS}, Seville, Spain, October 2020.
+% \item \textbf{*} \textbf{T. Odedeyi}, S. Giannakopoulos, H. Zirath, and I. Darwazeh, ``InP DHBT Single-Stage and Multiplicative Distributed Amplifiers for Ultra-Wideband Amplification,'' \emph{IEEE Transactions on Circuits and Systems I}, 2020.
+% \item C. Deakin, \textbf{T. Odedeyi}, and Z. Liu, ``Dual Frequency Comb Photonic Analog-to-Digital Conversion,'' \emph{IEEE Photonics Society Summer Topicals}, Mexico, July 2020.
+% \item \textbf{T. Odedeyi} and I. Darwazeh, ``Derivation of the Equivalent Input Noise of Multiplicative Distributed Amplifiers for Wideband Optical Receiver Applications,'' in \emph{IEEE International Symposium on Circuits and Systems (ISCAS)}, Seville, Spain, October 2020.
+% \item \textbf{*} \textbf{T. Odedeyi}, S. Giannakopoulos, H. Zirath, and I. Darwazeh, ``Single-Stage and Multiplicative Distributed Amplifiers for 200GHz+ Amplification,'' in \emph{IEEE Asia Pacific Microwave Conference (APMC)}, Singapore, 2019.
+% \item Z. Zhou, \textbf{T. Odedeyi}, B. Kelly, J. O'Carroll, R. Phelan, I. Darwazeh, and Z. Liu, ``Impact of Analog and Digital Pre-Emphasis on the Signal-to-Noise Ratio of Bandwidth-Limited Optical Transceivers,'' \emph{IEEE Photonics Journal}, 2020.
+% \item M. A. Ilgaz, A. Lavric, \textbf{T. Odedeyi}, I. Darwazeh, and B. Batagelj, ``Adjustable Testing Setup for a Single-Loop Optoelectronic Oscillator with an Electrical Bandpass Filter,'' \emph{Turkish Journal of Electrical Engineering and Computer Sciences}, vol. 28, no. 3, pp. 1293--1302, 2020.
+% \item M. A. Ilgaz, A. Lavric, \textbf{T. Odedeyi}, and B. Batagelj, ``Single-Loop Optoelectronic Oscillator at 10.4 GHz with a Cascaded Microstrip Bandpass Filter Configuration,'' in \emph{IEEE International Workshop on Fiber Optics in Access Networks (FOAN)}, September 2019.
+% \item \textbf{T. Odedeyi}, C. Poole, and I. Darwazeh, ``Noise Analysis of Multiplicative Distributed Amplifiers,'' in \emph{IEEE International Symposium on Circuits and Systems (ISCAS)}, Sapporo, Japan, May 2019.
+% \item \textbf{T. Odedeyi}, P. A. Haigh, and I. Darwazeh, ``Transmission Line Synthesis Approach to Extending the Bandwidth of LEDs for Visible Light Communication,'' in \emph{International Symposium on Communication Systems, Networks and Digital Signal Processing}, Budapest, Hungary, July 2018.
+% \item \textbf{T. Odedeyi} and I. Darwazeh, ``Matrix Single Stage Distributed Amplifier Design for Ultra Wideband Application,'' in \emph{24th IEEE International Conference on Electronics, Circuits and Systems (ICECS)}, Batumi, Georgia, December 2017.
+% \item \textbf{T. Odedeyi} and I. Darwazeh, ``Bandwidth Enhancement Technique for Bipolar Single Stage Distributed Amplifier Design,'' in \emph{Asia Pacific Microwave Conference (APMC)}, Kuala Lumpur, Malaysia, November 2017.
+% \end{enumerate}
+
+% \end{document}
